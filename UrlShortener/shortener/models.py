@@ -3,7 +3,7 @@ from django.db import models
 
 class URL(models.Model):
     targetURL = models.CharField(max_length=1000)
-    shortenedURL = models.CharField(max_length=20, primary_key=True)
+    shortenedURL = models.CharField(max_length=100, primary_key=True)
 
 class AdminConfig(models.Model):
     min_url_length = models.IntegerField(default = 5)

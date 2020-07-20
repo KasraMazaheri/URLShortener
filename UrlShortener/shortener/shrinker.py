@@ -29,6 +29,9 @@ def ConvertToBase62(n):
         r = n % base
         s += _ALPHABET[r]
         n //= base
+
+    if len(s) > adminConfig.max_url_length:
+        s = s[:adminConfig.max_url_length]
         
     return s
     
@@ -41,7 +44,6 @@ def shrink(url):
     size = len(hexdig) // 3 + 2
     size = min(size, ceil(adminConfig.max_url_length / constRatio))
     size = max(size, floor(adminConfig.min_url_length / constRatio))
-    print(size)
     
     chunck1 = int(hexdig[:size], 16)
     chunck2 = int(hexdig[size:min(size * 2, len(hexdig))], 16)

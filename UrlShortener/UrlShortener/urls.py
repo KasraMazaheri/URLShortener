@@ -18,6 +18,7 @@ from django.urls import path, include
 from shortener import views
 
 urlpatterns = [
+    path('', include('shortener.urls')),
     path('shortener/', include('shortener.urls')),
     path('admin/', admin.site.urls),
     path('<inputURL>/', views.retrieve, name="redirect"),
